@@ -70,7 +70,7 @@ export const createNewWorkoutLog = asyncHandler(async (req, res) => {
 	const workoutId = +req.params.id
 	const userId = req.user.id
 
-	const workoutLog = createInitialWorkoutLog(workoutId, userId)
+	const workoutLog = await createInitialWorkoutLog(workoutId, userId)
 
 	if (!workoutLog) {
 		res.status(404)
